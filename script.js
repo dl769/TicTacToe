@@ -153,19 +153,25 @@ var prevX=0; var prevO=0;
 	   tempX=0;
 	   tempO=0;
    }	
-
+prevX=0; prevO=0;
    for (var j=0; j<size*size; j++){    							//checking diagonally1 left-up->right-down
 
 	f = j + 1
 
 		for (i=f; i<=size*size; i=i+size+1){
-			if($('#'+i).val()=='X'){ 				
-				tempX++;
+			if($('#'+i).val()=='X'){ 
+				if(i-prevX == size+1 || tempX == 0){ 				
+					tempX++;
+					prevX=i;
 				}	
+			}
 
-			if($('#'+i).val()=='O'){ 				
+			if($('#'+i).val()=='O'){ 
+				if(i-prevO == size+1 || tempO ==0){				
 					tempO++;
-				}	
+					prevO=i;
+				}
+			}	
 
 		}
 
