@@ -328,7 +328,7 @@ function checkWinner(){
 
 
 $(document).ready(function() {
-	
+
 	$('.subNames').click(function() {
 
 	size = document.getElementById('mySelect').value;
@@ -378,9 +378,13 @@ $(document).ready(function() {
 			currentPlayerPlayer = 'o';
 			var parsedID = parseInt(this.id,10);
 			resultTable.push(parsedID);
-			computerMove();
-			steps++;
-			checkWinner();
+			window.setTimeout(function(){
+				computerMove();
+				steps++;
+				checkWinner();
+				
+			},110)
+			
 		}
 		
 		
